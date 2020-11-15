@@ -13,7 +13,7 @@ class TargetController extends Controller
      */
     public function index()
     {
-        return view('target.target_home');
+        return view('target.home');
     }
 
     /**
@@ -23,7 +23,7 @@ class TargetController extends Controller
      */
     public function create()
     {
-        //
+        return view('target.create');
     }
 
     /**

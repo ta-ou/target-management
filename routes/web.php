@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'target', 'middleware' => 'auth'], function(){
-    Route::get('target_home', 'TargetController@index')->name('target.target_home');
+    Route::get('home', 'TargetController@index')->name('target.home');
+    Route::get('create', 'TargetController@create')->name('target.create');
 
 });
 
