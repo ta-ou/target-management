@@ -34,7 +34,7 @@ class TargetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $target = $request->input('your_name');
     }
 
     /**

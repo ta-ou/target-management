@@ -23,6 +23,7 @@ class CreateTargetsTable extends Migration
             $table->string('small_target3', 20);
             $table->tinyInteger('target_category');
             $table->timestamps();
+            // 性別、年齢情報を紐付けたい
         });
     }
 
