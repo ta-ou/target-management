@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('target/target_home', 'TargetController@index');
+Route::group(['prefix' => 'target', 'middleware' => 'auth'], function(){
+    Route::get('target_home', 'TargetController@index')->name('target.target_home');
 
-// Auth::routes();
+});
+
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
