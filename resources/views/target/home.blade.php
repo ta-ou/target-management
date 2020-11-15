@@ -13,6 +13,11 @@
             {{ session('status') }}
           </div>
           @endif
+          <form method="GET" action="{{ route('target.create') }}">
+          <button type="submit" class="btn btn-dark">
+          新規登録
+          </button>
+          </form>
 
           target
         </div>
