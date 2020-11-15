@@ -14,7 +14,7 @@
           </div>
           @endif
 
-          <form method="POST">
+          <form method="POST" action="{{ route('target.store')}}">
             @csrf
             <div class="form-group">
               <label for="target">達成したい目標を入力してください</label>

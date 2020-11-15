@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Target;
+
 class TargetController extends Controller
 {
     /**
@@ -34,7 +36,18 @@ class TargetController extends Controller
      */
     public function store(Request $request)
     {
-        $target = $request->input('your_name');
+        $target_table = new Target;
+
+        $target_table->target = $request->input('target');
+        $target_table->reason = $request->input('reason');
+        $target_table->deadline = $request->input('deadline');
+        $target_table->small_target1 = $request->input('small_target1');
+        $target_table->small_target2 = $request->input('small_target2');
+        $target_table->small_target3 = $request->input('small_target3');
+        $target_table->target_category = $request->input('target_category');
+
+        $target_table->save();
+        return redirect('target/home');
     }
 
     /**
