@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Target;
+use Illuminate\Support\Facades\DB;
 
 class TargetController extends Controller
 {
@@ -15,7 +16,8 @@ class TargetController extends Controller
      */
     public function index()
     {
-        return view('target.home');
+        $targets = DB::table('targets')->select('target', 'created_at')->orderBy('created_at', 'desc')->get();
+        return view('target.home', compact('targets'));
     }
 
     /**
