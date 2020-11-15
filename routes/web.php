@@ -19,6 +19,7 @@ Route::group(['prefix' => 'target', 'middleware' => 'auth'], function(){
     Route::get('home', 'TargetController@index')->name('target.home');
     Route::get('create', 'TargetController@create')->name('target.create');
     Route::post('store', 'TargetController@store')->name('target.store');
+    Route::get('show/{id}', 'TargetController@show')->name('target.show');
 });
 
 
