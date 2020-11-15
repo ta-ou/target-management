@@ -17,7 +17,7 @@ class TargetController extends Controller
     public function index()
     {
         $targets = DB::table('targets')->select('id', 'target', 'created_at')->orderBy('created_at', 'desc')->get();
-        return view('target.home', compact('targets'));
+        return view('target.index', compact('targets'));
     }
 
     /**
@@ -49,7 +49,7 @@ class TargetController extends Controller
         $target_table->target_category = $request->input('target_category');
 
         $target_table->save();
-        return redirect('target/home');
+        return redirect('target/index');
     }
 
     /**
