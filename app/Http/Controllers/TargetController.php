@@ -92,7 +92,8 @@ class TargetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $each_target = Target::find($id);
+        return view('target.edit', compact('each_target'));
     }
 
     /**
