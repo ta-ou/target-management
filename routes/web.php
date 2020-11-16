@@ -22,6 +22,7 @@ Route::group(['prefix' => 'target', 'middleware' => 'auth'], function(){
     Route::get('show/{id}', 'TargetController@show')->name('target.show');
     Route::get('edit/{id}', 'TargetController@edit')->name('target.edit');
     Route::post('update/{id}', 'TargetController@update')->name('target.update');
+    Route::post('destroy/{id}', 'TargetController@destroy')->name('target.destroy');
 });
 
 

@@ -105,17 +105,17 @@ class TargetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $target_table = Target::find($id);
+        $each_target = Target::find($id);
 
-        $target_table->target = $request->input('target');
-        $target_table->reason = $request->input('reason');
-        $target_table->deadline = $request->input('deadline');
-        $target_table->small_target1 = $request->input('small_target1');
-        $target_table->small_target2 = $request->input('small_target2');
-        $target_table->small_target3 = $request->input('small_target3');
-        $target_table->target_category = $request->input('target_category');
+        $each_target->target = $request->input('target');
+        $each_target->reason = $request->input('reason');
+        $each_target->deadline = $request->input('deadline');
+        $each_target->small_target1 = $request->input('small_target1');
+        $each_target->small_target2 = $request->input('small_target2');
+        $each_target->small_target3 = $request->input('small_target3');
+        $each_target->target_category = $request->input('target_category');
 
-        $target_table->save();
+        $each_target->save();
         return redirect('target/index');
     }
 
@@ -127,6 +127,10 @@ class TargetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $each_target = Target::find($id);
+        $each_target->delete();
+
+        return redirect('target/index');
+
     }
 }

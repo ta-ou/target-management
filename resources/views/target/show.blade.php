@@ -25,11 +25,25 @@
             <!-- ログイン中のユーザーが目標の作成者の場合表示 -->
             <input class="btn btn-info" type="submit" value="変更する">
           </form>
-
+          <form method="POST" action="{{ route('target.destroy', ['id' => $each_target->id ]) }}" id="delete_{{$each_target->id}}">
+            @csrf
+            <a href="#" class="btn btn-danger" data-id="{{$each_target->id}}" onclick="deletePost(this);">削除する</a>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
 </div>
+
+<script>
+  function deletePost(e) {
+    if (confirm('本当に削除してよろしいでしょうか？')) {
+      document.getElementById('delete_' + e.dataset.id).submit();
+    }
+  }
+</script>
+
+
+
 @endsection
