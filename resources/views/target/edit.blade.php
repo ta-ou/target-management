@@ -14,7 +14,7 @@
           </div>
           @endif
 
-          <form method="GET" action="">
+          <form method="POST" action="{{ route('target.update', ['id' => $each_target->id ]) }}">
             @csrf
             <div class="form-group">
               <label for="target">達成したい目標を入力してください</label>

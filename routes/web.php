@@ -21,6 +21,7 @@ Route::group(['prefix' => 'target', 'middleware' => 'auth'], function(){
     Route::post('store', 'TargetController@store')->name('target.store');
     Route::get('show/{id}', 'TargetController@show')->name('target.show');
     Route::get('edit/{id}', 'TargetController@edit')->name('target.edit');
+    Route::post('update/{id}', 'TargetController@update')->name('target.update');
 });
 
 

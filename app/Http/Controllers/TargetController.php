@@ -105,7 +105,18 @@ class TargetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $target_table = Target::find($id);
+
+        $target_table->target = $request->input('target');
+        $target_table->reason = $request->input('reason');
+        $target_table->deadline = $request->input('deadline');
+        $target_table->small_target1 = $request->input('small_target1');
+        $target_table->small_target2 = $request->input('small_target2');
+        $target_table->small_target3 = $request->input('small_target3');
+        $target_table->target_category = $request->input('target_category');
+
+        $target_table->save();
+        return redirect('target/index');
     }
 
     /**

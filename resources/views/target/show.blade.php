@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">目標を作成しましょう</div>
+        <div class="card-header">目標の詳細</div>
 
         <div class="card-body">
           @if (session('status'))
@@ -13,7 +13,7 @@
             {{ session('status') }}
           </div>
           @endif
-          <form method="POSt" action="{{ route('target.edit', ['id'=> $each_target->id])}}">
+          <form method="GET" action="{{ route('target.edit', ['id'=> $each_target->id])}}">
             @csrf
             {{ $each_target->target }}
             {{ $each_target->reason }}
@@ -23,14 +23,9 @@
             {{ $each_target->small_target3 }}
             {{ $target_category }}
             <!-- ログイン中のユーザーが目標の作成者の場合表示 -->
-
             <input class="btn btn-info" type="submit" value="変更する">
           </form>
-          <form method="POST" action="{{ route('contact.destroy', ['id'=> $contact->id])}}" id="delete_{{$contact->id}}">
-            @csrf
-            <a href="#" class="btn btn-danger" data-id="{{$contact->id}}" onclick="deletePost(this);">削除する</a>
 
-          </form>
         </div>
       </div>
     </div>
