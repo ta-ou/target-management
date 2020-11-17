@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Target;
 use Illuminate\Support\Facades\DB;
+use App\Services\CheckTargetData; 
 
 class TargetController extends Controller
 {
@@ -61,25 +62,7 @@ class TargetController extends Controller
     public function show($id)
     {
         $each_target = Target::find($id);
-
-        if ($each_target->target_category === 1) {
-            $target_category = '勉強';
-        }
-        if ($each_target->target_category === 2) {
-            $target_category = '仕事';
-        }
-        if ($each_target->target_category === 3) {
-            $target_category = 'スポーツ';
-        }
-        if ($each_target->target_category === 4) {
-            $target_category = '健康';
-        }
-        if ($each_target->target_category === 5) {
-            $target_category = '趣味';
-        }
-        if ($each_target->target_category === 6) {
-            $target_category = 'その他';     
-        }
+        $target_category = CheckTargetData::checkTargetCategory($each_target);
         
         return view('target.show', compact('each_target', 'target_category'));
     }
@@ -131,6 +114,5 @@ class TargetController extends Controller
         $each_target->delete();
 
         return redirect('target/index');
-
     }
 }
