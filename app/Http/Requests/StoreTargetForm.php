@@ -13,7 +13,7 @@ class StoreTargetForm extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,9 +22,15 @@ class StoreTargetForm extends FormRequest
      * @return array
      */
     public function rules()
-    {
+    {   
         return [
-            //
+            'target' => 'required|string|max:20',
+            'reason' => 'required|string|max:20',
+            'deadline' => 'required|date|after_or_equal:today',
+            'small_target1' => 'required|string|max:20',
+            'small_target2' => 'required|string|max:20',
+            'small_target3' => 'required|string|max:20',
+            'target_category' => 'required',
         ];
     }
 }

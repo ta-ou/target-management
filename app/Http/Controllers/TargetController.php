@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Target;
 use Illuminate\Support\Facades\DB;
 use App\Services\CheckTargetData; 
+use App\Http\Requests\StoreTargetForm;
 
 class TargetController extends Controller
 {
@@ -17,7 +18,7 @@ class TargetController extends Controller
      */
     public function index()
     {
-        $targets = DB::table('targets')->select('id', 'target', 'created_at')->orderBy('created_at', 'desc')->get();
+        $targets = DB::table('targets')->select('id', 'target', 'created_at')->orderBy('created_at', 'desc')->paginate();
         return view('target.index', compact('targets'));
     }
 
@@ -37,7 +38,7 @@ class TargetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTargetForm $request)
     {
         $target_table = new Target;
 

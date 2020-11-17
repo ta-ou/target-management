@@ -118,9 +118,13 @@ return [
 
     'attributes' => [
         'password' => 'パスワード',
-        'your_name'=>'氏名',
         'email'=>'メールアドレス',
-        'caution'=>'注意事項',
+        'target'=>'目標',
+        'reason'=>'理由',
+        'deadline'=>'期限',
+        'small_target1'=> '小目標1',
+        'small_target2'=> '小目標2',
+        'small_target3'=> '小目標3',
+        'target_category' => 'カテゴリー',
     ],
-
 ];

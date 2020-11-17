@@ -42,6 +42,7 @@
               @endforeach
             </tbody>
           </table>
+          {{ $targets->links() }}
         </div>
       </div>
     </div>

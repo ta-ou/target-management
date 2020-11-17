@@ -14,6 +14,16 @@
           </div>
           @endif
 
+          @if ($errors->any())
+          <div class="alrrt alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+
           <form method="POST" action="{{ route('target.store')}}">
             @csrf
             <div class="form-group">
@@ -26,7 +36,7 @@
               <input type="text" class="form-control" id="reason" name="reason">
             </div>
 
-            <div class="form-group">  
+            <div class="form-group">
               <label for="deadline">期限を入力してください</label>
               <input type="date" class="form-control" id="deadline" name="deadline" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>">
             </div>
