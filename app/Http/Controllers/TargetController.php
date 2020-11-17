@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Target;
 use Illuminate\Support\Facades\DB;
 use App\Services\CheckTargetData; 
+use App\Services\SerchTargetData; 
 use App\Http\Requests\StoreTargetForm;
 
 class TargetController extends Controller
@@ -16,9 +17,17 @@ class TargetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $targets = DB::table('targets')->select('id', 'target', 'created_at')->orderBy('created_at', 'desc')->paginate();
+        
+
+        // 一覧表示、ペジネーション
+        // $targets = DB::table('targets')->select('id', 'target', 'created_at')->orderBy('created_at', 'desc')->paginate(15);
+
+        // 検索フォーム
+        $serch = $request->input('serch');
+        $targets = SerchTargetData::serchTarget($serch);
+        
         return view('target.index', compact('targets'));
     }
 
