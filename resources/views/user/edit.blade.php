@@ -9,7 +9,7 @@
 
   <div class="topWrapper">
     @if(!empty($authUser->thumbnail))
-    <img src="/storage/user/{{ $authUser->thumbnail }}" class="editThumbnail">
+    <img src="/storage/user/{{ $authUser->thumbnail }}" class="editThumbnail" width="30%" height="50%">
     @else
     画像なし
     @endif
@@ -21,13 +21,13 @@
     <input type="hidden" name="user_id" value="{{ $authUser->id }}">
     @if($errors->has('user_id'))<div class="error">{{ $errors->first('user_id') }}</div>@endif
 
-    <div class="labelTitle">Name</div>
+    <div class="labelTitle">ユーザーネーム</div>
     <div>
       <input type="text" class="userForm" name="name" placeholder="User" value="{{ $authUser->name }}">
       @if($errors->has('name'))<div class="error">{{ $errors->first('name') }}</div>@endif
     </div>
 
-    <div class="labelTitle">Thumbnail</div>
+    <div class="labelTitle">アイコン</div>
 
     <div>
       <input type="file" name="thumbnail">

@@ -17,7 +17,7 @@
         <td>
           <div>
             @if(!empty($authUser->thumbnail))
-            <img src="/storage/user/{{ $authUser->thumbnail }}" class="thumbnail">
+            <img src="/storage/user/{{ $authUser->thumbnail }}" class="thumbnail" width="30%" height="50%">
             @else
             画像なし
             @endif

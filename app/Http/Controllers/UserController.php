@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 
@@ -65,10 +65,10 @@ class UserController extends Controller
         } else {
             $param = [
                 'name' => $request->name,
-            ];
+            ];  
         }
 
         User::where('id', $request->user_id)->update($param);
-        return redirect(route('user.edit'))->with('success', '保存しました。');
+        return redirect(route('user.userEdit'))->with('success', '保存しました。');
     }
 }
