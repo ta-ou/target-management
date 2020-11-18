@@ -25,7 +25,12 @@ Route::group(['prefix' => 'target', 'middleware' => 'auth'], function(){
     Route::post('destroy/{id}', 'TargetController@destroy')->name('target.destroy');
 });
 
+Route::get('/user', 'UserController@index')->name('user.index')->middleware('auth');
+Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit')->middleware('auth');
+Route::post('/user/userEdit', 'UserController@userUpdate')->name('user.userUpdate')->middleware('auth');
 
 Auth::routes();
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
