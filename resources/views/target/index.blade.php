@@ -16,11 +16,11 @@
           <form method="GET" action="{{ route('target.create') }}">
             <button type="submit" class="btn btn-dark">
               新規登録
-            </button> 
+            </button>
           </form>
 
           <form method="GET" action="{{ route('target.index') }}" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" name="serch" type="search"　aria-label="Search">
+            <input class="form-control mr-sm-2" name="serch" type="search" 　aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索する</button>
           </form>
           <form method="GET" action="{{ route('target.index') }}" class="form-inline my-2 my-lg-0">
@@ -43,7 +43,7 @@
               <tr>
                 <th scope="row">{{ $target->created_at }}</th>
                 <td>{{ $target->target }}</td>
-                <td>名前</td>
+                <td>{{ $target->author_id }}</td>
                 <td>画像</td>
                 <td><a href="{{ route('target.show', ['id' => $target->id ] )}}">詳細をみる</a></td>
               </tr>

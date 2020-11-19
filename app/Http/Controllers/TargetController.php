@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Target;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Services\CheckTargetData; 
 use App\Services\SerchTargetData; 
@@ -19,15 +20,13 @@ class TargetController extends Controller
      */
     public function index(Request $request)
     {
+
         
-
-        // 一覧表示、ペジネーション
-        // $targets = DB::table('targets')->select('id', 'target', 'created_at')->orderBy('created_at', 'desc')->paginate(15);
-
         // 検索フォーム
         $serch = $request->input('serch');
         $targets = SerchTargetData::serchTarget($serch);
-        
+        // $testUserName = User::find($)->name;
+
         return view('target.index', compact('targets'));
     }
 
@@ -58,6 +57,7 @@ class TargetController extends Controller
         $target_table->small_target2 = $request->input('small_target2');
         $target_table->small_target3 = $request->input('small_target3');
         $target_table->target_category = $request->input('target_category');
+        $target_table->author_id = $request->user()->id;
 
         $target_table->save();
         return redirect('target/index');

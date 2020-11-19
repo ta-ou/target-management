@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
 
+
 class SerchTargetData
 {
   public static function serchTarget($data)
@@ -21,7 +22,8 @@ class SerchTargetData
       }
     }
 
-    $query->select('id', 'target', 'created_at');
+  
+    $query->select('id', 'target', 'created_at', 'author_id');
     $query->orderBy('created_at', 'desc');
     $serched_target = $query->paginate(15);
 
