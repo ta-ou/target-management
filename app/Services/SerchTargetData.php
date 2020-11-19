@@ -23,8 +23,7 @@ class SerchTargetData
     }
 
   
-    $query->select('id', 'target', 'created_at', 'author_id');
-    $query->orderBy('created_at', 'desc');
+    $query->select('id', 'target', 'created_at')->orderBy('created_at', 'desc');
     $serched_target = $query->paginate(15);
 
     return $serched_target;

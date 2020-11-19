@@ -9,4 +9,5 @@ class User extends Model
     public function targets(){
         return $this->hasMany('App\Models\Target');
     }
+
 }

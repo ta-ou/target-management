@@ -43,7 +43,8 @@
               <tr>
                 <th scope="row">{{ $target->created_at }}</th>
                 <td>{{ $target->target }}</td>
-                <td>{{ $target->author_id }}</td>
+                <td>名前
+                </td>
                 <td>画像</td>
                 <td><a href="{{ route('target.show', ['id' => $target->id ] )}}">詳細をみる</a></td>
               </tr>

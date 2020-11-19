@@ -25,7 +25,7 @@ class TargetController extends Controller
         // 検索フォーム
         $serch = $request->input('serch');
         $targets = SerchTargetData::serchTarget($serch);
-        // $testUserName = User::find($)->name;
+        // $user = User::find(3)->name;
 
         return view('target.index', compact('targets'));
     }
