@@ -15,12 +15,35 @@
           @endif
           <form method="GET" action="{{ route('target.edit', ['id'=> $each_target->id])}}">
             @csrf
-            {{ $each_target->target }}
-            {{ $each_target->reason }}
-            {{ $each_target->deadline }}
-            {{ $each_target->small_target1 }}
-            {{ $each_target->small_target2 }}
-            {{ $each_target->small_target3 }}
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <th scope="row">目標</th>
+                  <td>{{ $each_target->target }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">理由</th>
+                  <td>{{ $each_target->reason }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">期限</th>
+                  <td colspan="2">{{ $each_target->deadline }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">小目標1</th>
+                  <td colspan="2">{{ $each_target->small_target1 }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">小目標2</th>
+                  <td colspan="2">{{ $each_target->small_target2 }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">小目標3</th>
+                  <td colspan="2">{{ $each_target->small_target3 }}</td>
+                </tr>
+              </tbody>
+            </table>
+
             {{ $target_category }}
             <!-- ログイン中のユーザーが目標の作成者の場合表示 -->
             <input class="btn btn-info" type="submit" value="変更する">
