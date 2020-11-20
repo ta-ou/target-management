@@ -19,9 +19,7 @@ class TargetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-
-        
+    { 
         // 検索フォーム
         $serch = $request->input('serch');
         $targets = SerchTargetData::serchTarget($serch);

@@ -29,6 +29,10 @@ Route::get('/user', 'UserController@index')->name('user.index')->middleware('aut
 Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit')->middleware('auth');
 Route::post('/user/userEdit', 'UserController@userUpdate')->name('user.userUpdate')->middleware('auth');
 
+// コメントのルート
+// Route::post('store', 'CommentController@store')->name('comment.store');
+
+
 Auth::routes();
 
 
