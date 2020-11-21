@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-12">
+    <div class="col-md-10">
       <div class="card">
         <div class="card-header">目標の詳細</div>
 
@@ -43,20 +43,41 @@
                 </tr>
               </tbody>
             </table>
-
-            {{ $target_category }}
-            <!-- ログイン中のユーザーが目標の作成者の場合表示 -->
             <input class="btn btn-info" type="submit" value="変更する">
           </form>
+          <!-- ログイン中のユーザーが目標の作成者の場合表示 -->
           <form method="POST" action="{{ route('target.destroy', ['id' => $each_target->id ]) }}" id="delete_{{$each_target->id}}">
             @csrf
             <a href="#" class="btn btn-danger" data-id="{{$each_target->id}}" onclick="deletePost(this);">削除する</a>
           </form>
+          <!-- ログイン中のユーザーが目標の作成者の場合 終了 -->
         </div>
       </div>
     </div>
+    <!-- コメント -->
+    <div>
+      <form method="POST" action="{{ route('comment.store')}}">
+        @csrf
+        <p>この目標にコメントする</p>
+        <textarea type="text" class="form-control" id="comment" name="comment" cols="30" rows="3"></textarea>
+        <input class="btn btn-info" type="submit" value="登録する">
+      </form>
+
+      <div>
+        <p>コメント一覧</p>
+        <p class="text-muted">
+          <strong>作者</strong>
+          &#8901; 日時
+        </p>
+        <p>コメント内容</p>
+        <!-- コメント作者であれば -->
+        <div>
+          <button class="btn btn-sm btn-outline-danger">削除</button>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 </div>
 
 <script>

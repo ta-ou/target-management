@@ -30,7 +30,8 @@ Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit')->
 Route::post('/user/userEdit', 'UserController@userUpdate')->name('user.userUpdate')->middleware('auth');
 
 // コメントのルート
-// Route::post('store', 'CommentController@store')->name('comment.store');
+Route::get('show/{id}', 'CommentController@crate')->name('comment.create');
+Route::post('store', 'CommentController@store')->name('comment.store');
 
 
 Auth::routes();

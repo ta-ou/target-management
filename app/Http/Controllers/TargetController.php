@@ -55,7 +55,7 @@ class TargetController extends Controller
         $target_table->small_target2 = $request->input('small_target2');
         $target_table->small_target3 = $request->input('small_target3');
         $target_table->target_category = $request->input('target_category');
-        $target_table->author_id = $request->user()->id;
+        $target_table->user_id = $request->user()->id;
 
         $target_table->save();
         return redirect('target/index');
