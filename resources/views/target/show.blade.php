@@ -55,11 +55,13 @@
       </div>
     </div>
     <!-- コメント -->
+
     <div>
       <form method="POST" action="{{ route('comment.store')}}">
         @csrf
         <p>この目標にコメントする</p>
         <textarea type="text" class="form-control" id="comment" name="comment" cols="30" rows="3"></textarea>
+        <input type="hidden" value="{{ $each_target->id }}" name="target_id" id="target_id">
         <input class="btn btn-info" type="submit" value="登録する">
       </form>
 

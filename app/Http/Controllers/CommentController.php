@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -23,7 +24,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +35,15 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment_table = new Comment();
+
+        $comment_table->comment = $request->input('comment');
+        $comment_table->target_id = $request->input('target_id');
+        $comment_table->user_id = $request->user()->id;
+
+        $comment_table->save();
+        // showのページ
+        return redirect('target/index');
     }
 
     /**
