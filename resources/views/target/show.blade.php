@@ -57,7 +57,7 @@
     <!-- コメント -->
 
     <div>
-      <form method="POST" action="{{ route('comment.store')}}">
+      <form method="POST" action="{{ route('comment.store', ['id'=> $each_target->id])}}">
         @csrf
         <p>この目標にコメントする</p>
         <textarea type="text" class="form-control" id="comment" name="comment" cols="30" rows="3"></textarea>
@@ -72,6 +72,14 @@
           &#8901; 日時
         </p>
         <p>コメント内容</p>
+        @foreach($comments as $comment)
+        <tr>
+          <th scope="row">{{ $comment->created_at }}</th>
+          <td>{{ $comment->comment }}</td>
+          <td>名前</td>
+          <td>画像</td>
+        </tr>
+        @endforeach
         <!-- コメント作者であれば -->
         <div>
           <button class="btn btn-sm btn-outline-danger">削除</button>
