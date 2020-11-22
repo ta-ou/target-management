@@ -25,6 +25,8 @@ class TargetController extends Controller
         $targets = SerchTargetData::serchTarget($serch);
         // $user = User::find(3)->name;
 
+        // コメントの取得
+
         return view('target.index', compact('targets'));
     }
 
@@ -71,8 +73,10 @@ class TargetController extends Controller
     {
         $each_target = Target::find($id);
         $target_category = CheckTargetData::checkTargetCategory($each_target);
+
+        $comments = DB::table('comments')->where('target_id', $id)->select('comment', 'created_at', 'user_id', 'target_id')->get();
         
-        return view('target.show', compact('each_target', 'target_category'));
+        return view('target.show', compact('each_target', 'target_category', 'comments'));
     }
 
     /**
@@ -80,7 +84,7 @@ class TargetController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function edit($id)
     {
         $each_target = Target::find($id);

@@ -65,19 +65,12 @@
         <input class="btn btn-info" type="submit" value="登録する">
       </form>
 
-      <div>
-        <p>コメント一覧</p>
-        <p class="text-muted">
-          <strong>作者</strong>
-          &#8901; 日時
-        </p>
-        <p>コメント内容</p>
+      <div> 
+        <!--コメント表示  -->
         @foreach($comments as $comment)
         <tr>
           <th scope="row">{{ $comment->created_at }}</th>
           <td>{{ $comment->comment }}</td>
-          <td>名前</td>
-          <td>画像</td>
         </tr>
         @endforeach
         <!-- コメント作者であれば -->

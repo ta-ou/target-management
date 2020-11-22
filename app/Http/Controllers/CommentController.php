@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Comment;
-use Illuminate\Support\Facades\DB;
-
 
 class CommentController extends Controller
 {
@@ -16,8 +13,6 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $comments = DB::table('comments')->select('comment', 'user_id', 'target_id')->get();
-        
     }
 
     /**
