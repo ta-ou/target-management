@@ -65,17 +65,18 @@
         <input class="btn btn-info" type="submit" value="登録する">
       </form>
 
-      <div> 
+      <div>
         <!--コメント表示  -->
         @foreach($comments as $comment)
         <tr>
           <th scope="row">{{ $comment->created_at }}</th>
           <td>{{ $comment->comment }}</td>
+          <button class="btn btn-sm btn-outline-danger">削除</button>
         </tr>
         @endforeach
         <!-- コメント作者であれば -->
         <div>
-          <button class="btn btn-sm btn-outline-danger">削除</button>
+
         </div>
       </div>
 
