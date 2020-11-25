@@ -72,8 +72,9 @@
           <th scope="row">{{ $comment->created_at }}</th>
           <td>{{ $comment->comment }}</td>
           <button class="btn btn-sm btn-outline-danger">削除</button>
+          <br>
         </tr>
-        @endforeach
+        @endforeach 
         <!-- コメント作者であれば -->
         <div>
 
