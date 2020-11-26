@@ -67,6 +67,7 @@
 
       <div>
         <!--コメント表示  -->
+        <h2>コメント一覧</h2>
         @foreach($comments as $comment)
         <tr>
           <th scope="row">{{ $comment->created_at }}</th>
